@@ -1,0 +1,84 @@
+\documentclass[]{article}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{CPSC 327 Artificial Intelligence Spring 2015: Course Syllabus}
+
+\maketitle
+\section{Introduction}
+In this course we will look at modern methods and some theory of Artificial Intelligence with respect to Computer Science.  The course has two distinct parts.  
+
+In the first half of the course we'll learn about Searching, Logic programming, and various techniques for Knowledge Representation.  We will complete a number of programming assignments around these topics.
+
+In the second half of the course we will focus on Machine Learning methods and modern statistical inference approaches to intelligence.  This will include Line Fitting, Maximum Entropy learning, Relaxation Methods, Neural Networks, and Graphical Models.  We'll also spend some time learning how to evaluate the effectiveness of these methods for a couple different types of problems. 
+
+We will write programs using existing libraries for machine learning and lectures will be used to discuss theory.
+
+\section{Assignments and Tests}
+\textbf{Assignment 1}:  Write a paper (between 2000 and 4000 words) describing and defending your position on what it means for someone or something to be described as "intelligent" and the implications of your definition on machine intelligence
+
+\noindent
+\textbf{Assignment 2}:  Write a recursive descent parser to evaluate sentences in propositional logic.
+
+\noindent 
+\textbf{Assignment 3}:  Prolog assignment:  Create a family tree and run various queries on it.
+
+\noindent
+\textbf{Assignment 4}:  Prolog assignment: Create a solver for sudoku games.
+  
+\noindent 
+\textbf{Assignment 5}:  Search: Write a solution for the 8 puzzle. 
+
+\section{Grading}
+Programming assignments can be completed in either C++ or python unless otherwise specified.  Programs must compile and run error free in order to receive a grade of at least a C. 
+
+Programming assignments will be accompanied by a test data set which the program should be able to execute correctly.  I will occasionally have another hidden data set that you will not see.  The hidden data set will be similar to, but not the same as the test set.  Your program must pass the hidden data set in order to get at least a B. 
+ 
+\subsection{Python Programming Assignments}
+Programs in python will exhibit excellent style and feature usage to receive an A.  For example, proper use of generators will be considered in approaching an A.  other examples of syntax that I will be looking for are:
+\begin{itemize}
+\item{Proper and appropriate use of containers (list, set, dict, etc.)}
+\item{Proper use of standard library, especially itertools.}
+\item{Proper use of pythonic idioms (e.g., splitting or joining strings, etc.}
+\item{Surprise me.  Do something interesting with the language that improves performance, or find a library that helps you solve a problem.  Demonstrate proficiency.}
+\end{itemize}
+Your python program can receive extra credit by passing pylint (http://www.pylint.org/).  Pylint is a code style checker that helps your code be error free and well formed.
+
+\subsection{C++ Programming Assignments}
+Since C++ is a more difficult language, assignments using C++ will be held to a higher standard than python programs.
+
+for B and C grades the criteria are basically the same as for python.  To receive an A you will need to consider the following requirements:
+\begin{itemize}
+\item{Proper use of const and reference (\&).}
+\item{Use of the standard template library.}
+\item{Minimal and appropriate use of pointers.}
+\item{Minimal and appropriate use of inheritance.}
+\end{itemize}
+You can receive extra credit for C++ programs that pass cpplint:
+
+\url{http://google-styleguide.googlecode.com/svn/trunk/cppguide.html#cpplint}.  
+
+\noindent This program will verify that your code passes the Google C++ style guide.  See 
+
+\url{http://google-styleguide.googlecode.com/svn/trunk/cppguide.html}
+
+\noindent for more information.  
+
+\subsection{Final Projects}
+Your Final grade in this class will be given by a project instead of a final exam.  The goal of the project is to predict whether or not individuals survived the wreck of the Titanic.  This will be treated as a machine learning task.  The project will be completed in python using the tools scikit-learn and pandas among others.  The rules of the project can be found at:
+
+\url{http://www.kaggle.com/c/titanic-gettingStarted}
+
+
+
+\subsection{Grade Breakdown}
+Your grade will be calculated as a percentage of completed work as follows:
+\begin{itemize}
+\item Homework and programming assignments: 70\%
+\item mid-term: 10\%
+\item Final project: 20\%
+\end{itemize}
+I will provide lots of opportunity for extra credit in the form of extended or additional programming assignments.
+\end{document}
