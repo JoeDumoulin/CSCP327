@@ -22,7 +22,7 @@ Your paper should be written in [HTML Markdown](http://en.wikipedia.org/wiki/Mar
 2. [Mac](http://macdown.uranusjr.com/)
 3. [Linux](http://remarkableapp.net/)
 
-Markdown files are just text files so you can also use the information on [this page](http://daringfireball.net/projects/markdown/syntax).  You can test your markdown using one of the afrementions editors or using an online syntax checker like [this one](http://daringfireball.net/projects/markdown/dingus).
+Markdown files are just text files so you can also use the information on [this page](http://daringfireball.net/projects/markdown/syntax) and your favorite text editor or IDE.  You can test your markdown using one of the aforementioned editors or using an online syntax checker like [this one](http://daringfireball.net/projects/markdown/dingus).
 
 The assignment should be submitted using the `submit` program.
 
