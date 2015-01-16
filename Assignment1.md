@@ -26,5 +26,5 @@ Markdown files are just text files so you can also use the information on [this 
 
 The assignment should be submitted using the `submit` program.
 
-The assignment is due Wednesday Jan 21, 2015.
+The assignment is due Wednesday Jan 28, 2015.
 
