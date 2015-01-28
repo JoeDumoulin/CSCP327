@@ -4,9 +4,9 @@ The key to evaluating logic is to treat it as a particular language.  In this as
 
 To help you with this assignment, you should look at some of the www pages that describe how to create simple infix arithmatic calculators using recursive descent parsing.
 
-lso I will provide you with a grammar for designing the parser operations and some tests that your rogram should be able to successfully parse.
+also I will provide you with a grammar for designing the parser operations and some tests that your rogram should be able to successfully parse.
 
-You may complete this assignment in either python or c++.  
+You may complete this assignment in either python or c++.  You may work in groups of up to three if you prefer.
 
 If you are unfamilar with recursive descent parsing, I would recommend that you create running versions of the infix parsers on the example pages you read.  then use the grammar provided with this assignment to design the parser for propositional sentences.
 
@@ -24,3 +24,42 @@ There are many many examples of recursive descent parsing as well as excellent d
 - [Parser Combinator method without the evaluation step](http://www.onlamp.com/pub/a/python/2006/01/26/pyparsing.html?page=5)
 - [A more complex and complete description of parsing](http://effbot.org/zone/simple-top-down-parsing.htm)
 - [A clear description of all the steps for creating an infix calculator in python](http://blog.erezsh.com/how-to-write-a-calculator-in-70-python-lines-by-writing-a-recursive-descent-parser/)
+
+###A Grammar for Propositional Sentences###
+To create a parser for Propositional logic, we need a concrete representation of the structure of the language.   For this representation we use the following grammar:
+
+>Expression -> BiconditionalExpression
+
+>BiconditionalExpression -> ImplicationExpression '<=>' BiconditionalExpression
+
+>BiconditionalExpression -> ImplicationExpression
+
+>ImplicationExpression -> OrExpression '=>' ImplicationExpression
+
+>Implication -> OrExpression
+
+>OrExpression -> AndExpression '|' OrExpression
+
+>OrExpression -> AndExpression
+
+>AndExpression -> NegateExpression '&' AndExpression
+
+>AndExpression -> NegateExpression
+
+>NegateExpression -> '~' Expression
+
+>NegateExpression -> Expression
+
+>Expression -> '(' BiConditionalExpression ')'
+
+>Expression -> LiteralExpression
+
+>LiteralExpression -> 'true'
+
+>LiteralExpresion -> 'false'
+
+This assignment is due on **Friday, February 7 2015**.
+
+
+
+
