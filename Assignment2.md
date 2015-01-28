@@ -58,6 +58,20 @@ To create a parser for Propositional logic, we need a concrete representation of
 
 >LiteralExpresion -> 'false'
 
+The list of operators and their order of operations from least to most significant) is:
+
+`<=>, =>, &, |, ~`
+
+Use this grammar and the techniques you learn in the tutorials to create two operations.  One operation will read a line of propositional arithmatic like the following:
+
+`false & (true <==> (false | true & ~false))`
+
+And correctly parse it into an Abstract Syntax Tree.  Use the examples in the file `TestParse.txt` on this github site to test your parses.
+
+The next operation is to Evaluate the tree.  In this operation your program will read the tree created by the parse and return the logical value of the expression represented in the Tree.
+
+Test your program using th econtents of the `TestParse.txt` file and determine if you are correctly evaluating each statement.
+
 This assignment is due on **Friday, February 7 2015**.
 
 
