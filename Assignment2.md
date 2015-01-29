@@ -28,7 +28,6 @@ There are many many examples of recursive descent parsing as well as excellent d
 ###A Grammar for Propositional Sentences###
 To create a parser for Propositional logic, we need a concrete representation of the structure of the language.   For this representation we use the following grammar:
 
->Expression -> BiconditionalExpression
 
 >BiconditionalExpression -> ImplicationExpression '<=>' BiconditionalExpression
 
@@ -60,7 +59,7 @@ To create a parser for Propositional logic, we need a concrete representation of
 
 The list of operators and their order of operations from least to most significant) is:
 
-`<=>, =>, &, |, ~`
+`<=>, =>, |, &, ~`
 
 Use this grammar and the techniques you learn in the tutorials to create two operations.  One operation will read a line of propositional arithmatic like the following:
 
