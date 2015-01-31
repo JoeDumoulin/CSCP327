@@ -69,7 +69,7 @@ And correctly parse it into an Abstract Syntax Tree.  Use the examples in the fi
 
 The next operation is to Evaluate the tree.  In this operation your program will read the tree created by the parse and return the logical value of the expression represented in the Tree.
 
-Test your program using th econtents of the `TestParse.txt` file and determine if you are correctly evaluating each statement.
+Test your program using the contents of the `TestParse.txt` file and determine if you are correctly evaluating each statement.
 
 This assignment is due on **Friday, February 7 2015**.
 
