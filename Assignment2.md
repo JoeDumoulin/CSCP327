@@ -35,7 +35,7 @@ To create a parser for Propositional logic, we need a concrete representation of
 
 >ImplicationExpression -> OrExpression '=>' ImplicationExpression
 
->Implication -> OrExpression
+>ImplicationExpression -> OrExpression
 
 >OrExpression -> AndExpression '|' OrExpression
 
@@ -63,7 +63,7 @@ The list of operators and their order of operations from least to most significa
 
 Use this grammar and the techniques you learn in the tutorials to create two operations.  One operation will read a line of propositional arithmatic like the following:
 
-`false & (true <==> (false | true & ~false))`
+`false & (true <=> (false | true & ~false))`
 
 And correctly parse it into an Abstract Syntax Tree.  Use the examples in the file `TestParse.txt` on this github site to test your parses.
 
