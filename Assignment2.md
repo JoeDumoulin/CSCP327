@@ -49,7 +49,7 @@ To create a parser for Propositional logic, we need a concrete representation of
 
 >NegateExpression -> Expression
 
->Expression -> '(' BiConditionalExpression ')'
+>Expression -> '(' BiconditionalExpression ')'
 
 >Expression -> LiteralExpression
 
