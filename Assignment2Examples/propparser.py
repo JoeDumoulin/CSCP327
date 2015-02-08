@@ -65,7 +65,7 @@ def evaluate(tree):
 def calc(expr):
         if expr is None or expr == '':
           return
-        split_expr = re.findall('true|false|[%s]' % ''.join(token_map), expr)
+        split_expr = re.findall('true|false|[%s]' % ''.join(token_map), expr, re.I)
         print split_expr
         tokens = [Token(token_map.get(x, 'LOGIC'), x) for x in split_expr]
 #        print tokens
