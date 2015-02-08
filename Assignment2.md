@@ -4,7 +4,7 @@ The key to evaluating logic is to treat it as a particular language.  In this as
 
 To help you with this assignment, you should look at some of the www pages that describe how to create simple infix arithmatic calculators using recursive descent parsing.
 
-also I will provide you with a grammar for designing the parser operations and some tests that your rogram should be able to successfully parse.
+also I have provided a grammar for designing the parser operations and some tests that your rogram should be able to successfully parse.
 
 You may complete this assignment in either python or c++.  You may work in groups of up to three if you prefer.
 
