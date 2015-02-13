@@ -71,7 +71,7 @@ The next operation is to Evaluate the tree.  In this operation your program will
 
 Test your program using the contents of the `TestParse.txt` file and determine if you are correctly evaluating each statement.
 
-This assignment is due on **Friday, February 7 2015**.
+This assignment is due on **Friday, February 13 2015**.
 
 
 

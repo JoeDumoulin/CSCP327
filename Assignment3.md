@@ -17,4 +17,12 @@ Once you have gotten this far, you should be able to answer the following questi
 4. Modify the query in 2 to find any grandparents or grandchildren.
 5. Write a query for discovering siblings in the family tree.  run it on some examples and check for problems.  If there are problems with the query, explain why and try to fix the problems.
 
+###SWI-prolog Resources
+Here are a few extra sites that will help you proceed through the material once you have installed swi-prolog.  
+
+ - [GettingStarted](http://www.swi-prolog.org/pldoc/man?section=quickstart)
+
+ - [Cheet sheet for some common needs](http://www.cs.toronto.edu/~sheila/324/f05/tuts/swi.pdf)
+ - If you are haveing trouble, thake a look at [this blog post](http://www.virtuousprogrammer.com/?p=203).  It is very helpful for getting going with swi.
+
 This assignment will be due on **Feb 27**.
