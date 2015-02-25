@@ -1,0 +1,119 @@
+\documentclass[]{article}
+
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{listings}
+
+\lstset{
+  basicstyle=\itshape,
+  xleftmargin=3em,
+  literate={->}{$\rightarrow$}{2}
+}
+
+\begin{document}
+
+\title{CPSC 327 Artificial Intelligence Spring 2015: Mid-Term Study Guide}
+
+\maketitle
+
+\section{Name 5 Attributes of Intelligence}
+Use the reading, class notes, your paper, and my comments to prepare 5 attributes of intelligence that you can write for this part of the test.
+\vspace{1in}
+\section{Grammars}
+Given the following grammar:
+\begin{lstlisting}
+A -> B '&' C
+B -> C '%' C
+C -> '[a-z]'
+\end{lstlisting}
+
+which of the following are valid?
+\begin{enumerate}
+\item a \% b \& c
+\item b \% c \% d
+\item x \& y \% z
+\item x \% y \& z
+\end{enumerate}
+
+\newpage
+
+Given the following grammar:
+\begin{lstlisting}
+U -> V ' ' U | V
+V ->  '[a-z]+' | '(' U ')'
+\end{lstlisting}
+
+which of the following are valid?
+\begin{enumerate}
+\item I shot an elephant in my pajamas
+\item all roads lead to rome
+\item amen
+\item what is the flying speed of an unburdened sparrow (european or african)
+\end{enumerate}
+
+\section{Proofs in The Wumpus World}
+Keep these logic rules in your back pocket:
+
+\begin{itemize}
+\item Or Commutativity: $A \vee B \equiv B \vee A$.
+\item And Commutativity: $A \wedge B \equiv B \wedge A$.
+\item Or Associativity: $A \vee (B \vee C) \equiv (A \vee B) \vee C$.
+\item And Associativity: $A \wedge (B \wedge C) \equiv (A \wedge B) \wedge C$.
+\item Double Negation: $\neg \neg A \equiv A$.
+\item Contraposition: $A \rightarrow B \equiv \neg B \rightarrow \neg A$.
+\item Implication Elimination: $A \rightarrow B \equiv \neg A \vee B$.
+\item Biconditional Elimination: $A \leftrightarrow B \equiv (A \rightarrow B) \wedge (B \rightarrow A)$.
+\item DeMorgan's Law 1: $\neg (A \wedge B) \equiv \neg A \vee \neg B$.
+\item DeMorgan's Law 2: $\neg (A \vee B) \equiv \neg A \wedge \neg B$.
+\item Distribute Or: $A \vee (B \wedge C) \equiv (A \vee B) \wedge (A \vee C)$.
+\item Distribute And: $A \wedge (B \vee C) \equiv (A \wedge B) \vee (A \wedge C)$.
+\end{itemize}
+and these inference rules:
+\begin{itemize}
+\item Modus Ponens: \[\frac{A \rightarrow B, A}{B}\].
+\item And Elimination: \[\frac{A \wedge B}{A}\]
+\end{itemize}
+
+\newpage
+
+1.  Given the rules:
+\begin{description}
+\item[R1:] $\neg P_{1,1}$.
+\item[R2:] $B_{1,1} \leftrightarrow (P_{1,2} \vee P_{2,1})$.
+\item[R3:] $B_{2,1} \leftrightarrow (P_{1,1} \vee P_{2,2} \vee P_{3,1})$. 
+\end{description}
+
+we then visit [1,1] and [2,1] and learn the following facts:
+\begin{description}
+\item[R4:] $\neg B_{1,1}$.
+\item[R5:] $B_{2,1}$.
+\end{description}
+
+A.  Prove that there is no pit at location [1,2].
+
+\vspace{1in}
+Now move to location [1,2] and learn the following fact:
+\begin{description}
+\item[R5:] $\neg B_{1,2}$.
+\end{description}
+
+B.  Prove that there is a pit in location [3,1]
+
+\newpage
+\section{prolog Programs}
+\subsection{What, if anything, is wrong with the following prolog clause?}
+sibling(A,B):- parent(X,A), parent(X,B).
+\vspace{5mm}
+
+  What will result if it is run against family.pl?
+\vspace{1in}
+
+
+
+\subsection{Write a set of prolog clauses to define a fibonacci sequence}
+
+
+
+
+
+\end{document}
