@@ -2,6 +2,7 @@
 
 \usepackage{hyperref}
 \usepackage{amsmath}
+\usepackage{tabu}
 \usepackage{listings}
 
 \lstset{
@@ -72,6 +73,7 @@ and these inference rules:
 \begin{itemize}
 \item Modus Ponens: \[\frac{A \rightarrow B, A}{B}\].
 \item And Elimination: \[\frac{A \wedge B}{A}\]
+\item Resolution: \[\frac{(A \vee B \vee C), \neg B}{(A \vee C)}\]
 \end{itemize}
 
 \newpage
@@ -90,14 +92,46 @@ we then visit [1,1] and [2,1] and learn the following facts:
 \end{description}
 
 A.  Prove that there is no pit at location [1,2].
+\vspace{4mm}
 
-\vspace{1in}
-Now move to location [1,2] and learn the following fact:
+{\tabulinesep=1.5mm
+\begin{tabu}{| l | l | l |}
+\hline
+Step & Rule & Reason \\
+\hline
+S1 & $B_{1,1} \rightarrow (P_{1,2} \vee P_{2,1}) \wedge (P_{1,2} \vee P_{2,1}) \rightarrow B_{1,1}$ & Biconditional Elimination of R2. \\
+S2 & $(P_{1,2} \vee P_{2,1}) \rightarrow B_{1,1}$ & And Elimination. \\
+S3 & $\neg B{1,1} \rightarrow \neg(P_{1,2} \vee P_{2,1})$ & Contraposition. \\
+S4 & $\neg(P_{1,2} \vee P_{2,1})$ & Modus Ponens S3 and R4. \\
+S5 & $\neg P_{1,2} \wedge \neg P_{2,1}$ & DeMorgan. \\
+\textbf{S6} & $\neg P_{1,2}$ & And-Elimination \\
+\hline
+\end{tabu}}
+
+\vspace{4mm}
+Now move to location [1,2] and learn the fact R6 and add the game rule R7: 
 \begin{description}
-\item[R5:] $\neg B_{1,2}$.
+\item[R6:] $\neg B_{1,2}$.
+\item[R7:] $B_{1,2} \leftrightarrow (P_{1,1} \vee P_{2,2} \vee P_{1,3})$.
 \end{description}
 
 B.  Prove that there is a pit in location [3,1]
+\vspace{4mm}
+
+{\tabulinesep=1.5mm
+\begin{tabu}{| l | l | l |}
+\hline
+Step & Rule & Reason \\
+\hline
+S6 & $\neg P_{2,2} \wedge P_{1,3}$ & S1 - S5 above and R1 applied to R7. \\
+S7 & $\neg P_{2,2}$ & And Elimination from S6. \\
+S8 & $\neg P_{1,3}$ & And Elimination from S6. \\
+S9 & $(P_{1,1} \vee P_{2,2} \vee P_{1,3})$ & Biconditional Elimination of R3 and Modus Ponens R5.\\
+S10 & $P_{1,1} \vee P_{3,1}$ & Resolution of S9 and S7. \\
+S11 & $P_{3,1}$ & Resolution of R1 and S10. \\
+\hline
+\end{tabu}}
+
 
 \newpage
 \section{prolog Programs}
@@ -106,14 +140,33 @@ sibling(A,B):- parent(X,A), parent(X,B).
 \vspace{5mm}
 
   What will result if it is run against family.pl?
-\vspace{1in}
+\vspace{4mm}
 
+?- sibling(stephanie, X).
+
+X = stephanie ;
+
+X = danielle ;
+
+X = stephanie ;
+
+X = danielle.
+\vspace{4mm}
 
 
 \subsection{Write a set of prolog clauses to define a fibonacci sequence}
-\vspace{1in}
+\vspace{4mm}
 
+For an inefficient example, 
+\begin{verbatim}
+fib(1,1) :- !.
+fib(2,1) :- !.
+fib(N,F) :- N>2,
+            N1 is N-1, fib(N1,F1),
+            N2 is N-2, fib(N2,F2),
+            F is F1+F2.
 
+\end{verbatim}
 
 
 \end{document}
