@@ -20,9 +20,11 @@ mother(eleanor,crystal).
 mother(crystal,stephanie).
 mother(crystal,danielle).
 
+child(X,Y) :- father(Y,X).
+child(X,Y) :- mother(Y,X).
+
 parent(X,Y) :- father(X,Y).
 parent(X,Y) :- mother(X,Y).
 
 sibling(X,Y) :- parent(Z,X),
                 parent(Z,Y).
-                
