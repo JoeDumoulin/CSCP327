@@ -1,4 +1,6 @@
 % 8-puzzle experiments
+use_module(library(lists)).
+use_module(library(heaps)).
 
 %% move left in the top row
 move([X1,0,X3, X4,X5,X6, X7,X8,X9],
@@ -90,17 +92,97 @@ cost([_,_,_,_,_,1,_,_,_], 2).
 cost([_,_,_,_,_,_,_,_,1], 3).
 cost([_,_,_,_,_,_,1,_,_], 3).
 
+cost([_,_,2,_,_,_,_,_,_], 0).
+cost([_,2,_,_,_,_,_,_,_], 1).
+cost([_,_,_,_,_,2,_,_,_], 1).
+cost([2,_,_,_,_,_,_,_,_], 2).
+cost([_,_,_,_,2,_,_,_,_], 2).
+cost([_,_,_,_,_,_,_,_,2], 2).
+cost([_,_,_,_,_,_,_,2,_], 3).
+cost([_,_,_,2,_,_,_,_,_], 3).
+cost([_,_,_,_,_,_,2,_,_], 4).
+
+cost([_,_,_,3,_,_,_,_,_], 0).
+cost([3,_,_,_,_,_,_,_,_], 1).
+cost([_,_,_,_,3,_,_,_,_], 1).
+cost([_,_,_,_,_,_,3,_,_], 1).
+cost([_,3,_,_,_,_,_,_,_], 2).
+cost([_,_,_,_,_,3,_,_,_], 2).
+cost([_,_,_,_,_,_,_,3,_], 2).
+cost([_,_,3,_,_,_,_,_,_], 3).
+cost([_,_,_,_,_,_,_,_,3], 3).
+
+cost([_,_,_,_,4,_,_,_,_], 0).
+cost([_,_,_,4,_,_,_,_,_], 1).
+cost([_,_,_,_,_,4,_,_,_], 1).
+cost([_,4,_,_,_,_,_,_,_], 1).
+cost([_,_,_,_,_,_,_,4,_], 1).
+cost([4,_,_,_,_,_,_,_,_], 2).
+cost([_,_,4,_,_,_,_,_,_], 2).
+cost([_,_,_,_,_,_,4,_,_], 2).
+cost([_,_,_,_,_,_,_,_,4], 2).
+
+cost([_,_,_,_,_,5,_,_,_], 0).
+cost([_,_,_,_,5,_,_,_,_], 1).
+cost([_,_,5,_,_,_,_,_,_], 1).
+cost([_,_,_,_,_,_,_,_,5], 1).
+cost([_,5,_,_,_,_,_,_,_], 2).
+cost([_,_,_,5,_,_,_,_,_], 2).
+cost([_,_,_,_,_,_,_,5,_], 2).
+cost([5,_,_,_,_,_,_,_,_], 3).
+cost([_,_,_,_,_,_,5,_,_], 3).
+
+cost([_,_,_,_,_,_,6,_,_], 0).
+cost([_,_,_,_,_,_,_,6,_], 1).
+cost([_,_,_,6,_,_,_,_,_], 1).
+cost([6,_,_,_,_,_,_,_,_], 2).
+cost([_,_,_,_,6,_,_,_,_], 2).
+cost([_,_,_,_,_,_,_,_,6], 2).
+cost([_,6,_,_,_,_,_,_,_], 3).
+cost([_,_,_,_,_,6,_,_,_], 3).
+cost([_,_,6,_,_,_,_,_,_], 4).
+
+cost([_,_,_,_,_,_,_,7,_], 0).
+cost([_,_,_,_,_,_,_,_,7], 1).
+cost([_,_,_,_,_,_,7,_,_], 1).
+cost([_,_,_,_,7,_,_,_,_], 1).
+cost([_,_,_,_,_,7,_,_,_], 2).
+cost([_,_,_,7,_,_,_,_,_], 2).
+cost([_,7,_,_,_,_,_,_,_], 2).
+cost([7,_,_,_,_,_,_,_,_], 3).
+cost([_,_,7,_,_,_,_,_,_], 3).
+
+cost([_,_,_,_,_,_,_,_,8], 0).
+cost([_,_,_,_,_,_,_,8,_], 1).
+cost([_,_,_,_,_,8,_,_,_], 1).
+cost([_,_,_,_,_,_,8,_,_], 2).
+cost([_,_,_,_,8,_,_,_,_], 2).
+cost([_,_,8,_,_,_,_,_,_], 2).
+cost([_,_,_,8,_,_,_,_,_], 3).
+cost([_,8,_,_,_,_,_,_,_], 3).
+cost([8,_,_,_,_,_,_,_,_], 4).
+
 
 % test with
 % findall(A,cost([5,2,3,4,0,1,6,7,8],A), L).
 
-% step(+Parent, -Children)
-% from the parent state, collect the valid children states.
-step(ParentState, ChildrenStates):-
-    findall(Child, move(ParentState, Child), ChildrenStates).
+% node(+State, -Cost)
+node(State, Cost):-
+  findall(A, cost(State, A), L),
+  sum_list(L, Cost).
 
-%teststep(Parent):-
-%    step(ParentState, C),
-%    write(C).
+make_nodes([Last], [node(Last, _)]) :- !.
+%make_nodes([First|Rest], [node(First, Cost)|Nodes]):-
+%    make_nodes(Rest, Nodes).
+
+% step(+Parent, -ChildrenNodes)
+% from the parent state, collect the valid children states.
+step(ParentState, ChildrenNodes):-
+    findall(Child, move(ParentState, Child), ChildrenNodes).
+
+teststep(Parent):-
+    step(Parent, C),
+    write(C),
+    fail.
 
 
