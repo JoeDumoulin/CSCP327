@@ -13,5 +13,5 @@ You will use A* to solve the eight puzzle which is described [here](http://www.a
 
 Your solution will be in **prolog**.  [Here](http://cse630.artifice.cc/prolog-examples.html) is an example solution of the 8-puzzle that is a good starting point, but the solution on this page uses depth first search not A\*.  
 
-This assignment will be due on **March 20**.
+This assignment will be due on **March 25**.
 
