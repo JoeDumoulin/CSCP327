@@ -1,6 +1,7 @@
 % 8-puzzle experiments
 use_module(library(lists)).
 use_module(library(heaps)).
+use_module(library(apply)).
 
 %% move left in the top row
 move([X1,0,X3, X4,X5,X6, X7,X8,X9],
@@ -166,23 +167,30 @@ cost([8,_,_,_,_,_,_,_,_], 4).
 % test with
 % findall(A,cost([5,2,3,4,0,1,6,7,8],A), L).
 
+less(<, [_, C1], [_, C2]):- C1 =< C2.
+less(>, [_, C1], [_, C2]):- C1 > C2.
+
 % node(+State, -Cost)
 node(State, Cost):-
   findall(A, cost(State, A), L),
   sum_list(L, Cost).
 
-make_nodes([Last], [node(Last, _)]) :- !.
-%make_nodes([First|Rest], [node(First, Cost)|Nodes]):-
-%    make_nodes(Rest, Nodes).
+% zipnodes(+States, -StatesAndCost)
+zipnodes([], []).
+zipnodes([H1|T1], [[H1,C]|T2]):-
+  node(H1,C),
+  zipnodes(T1, T2).
 
 % step(+Parent, -ChildrenNodes)
 % from the parent state, collect the valid children states.
 step(ParentState, ChildrenNodes):-
-    findall(Child, move(ParentState, Child), ChildrenNodes).
+    findall(Child, move(ParentState, Child), ChildrenStates),
+    zipnodes(ChildrenStates, UnOrderedNodes),
+    predsort(less, UnOrderedNodes, ChildrenNodes).
 
 teststep(Parent):-
-    step(Parent, C),
-    write(C),
+    step(Parent, Nodes),
+    write(Nodes),
     fail.
 
 
