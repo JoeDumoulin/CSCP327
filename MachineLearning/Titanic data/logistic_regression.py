@@ -36,8 +36,6 @@ x_train, x_test, y_train, y_test = cross_validation.train_test_split(
 
 print df_data.columns    
 
-print x_test
-
 # First heres the model with sklearn
 lr_model = LogisticRegression().fit(x_train, y_train)
 y_predict = lr_model.predict(x_test)
@@ -59,5 +57,9 @@ print 'accuracy = %f' % accuracy_score(y_test, y_predict2)
 #print y_predict
 
 print 'F1 score: %f' % f1_score(y_test, y_predict2)
+
+# summary statistics from statsmodel
+print result.summary()
+
 
 
